@@ -1,0 +1,188 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Out of Studio</title>
+
+<style>
+  body {
+    margin: 0;
+    background: #ffd373;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    max-height: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 80%;
+    max-height: 90%;
+    background: #000;
+   
+  }
+  .lightbox-container img {
+    max-width: 50%;
+    max-height: 70%;
+    object-fit: contain;
+   
+  }
+  .lightbox-caption {
+    color: white;
+    margin-left: 20px;
+    max-width: 35%;
+    max-height: 50%;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 1.4;
+    padding-right: 8px;
+  }
+
+ 
+
+</style>
+</head>
+<body>
+
+   <a href="index.html" style="position: absolute; top: 5px; left: 5px;">Back</a>  
+   <h1 style="text-align: center; margin-top: 30px;">Out of Studio study</h1>
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="images4/ref1.png" alt="This is the reference image I found with a similar style. Regarding the overall visual effect of my page, I want the home floor plan on the homepage to have this particular drawing style.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/ref2.png" alt="The style of this picture is what I intend to adopt for the weekly pages, as a reference for the gallery display of the works." >
+  </div>
+  <div class="gallery-item">
+    <img src="images4/ref3.jpg" alt="This picture is also a reference image for the home page.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/webstudy.png" alt="This is a conceptual webpage with a pixel-style overall design. It is decorated with ASCII lines, providing an immersive experience without any distractions, allowing visitors to fully focus on the text itself, creating a meditative atmosphere. The core keywords are about patience and river. Users mentally count the numbers while playing a game, and it has a strong narrative quality. Combined with the music provided by the website, it feels like entering a story.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/galleryeg.png" alt="This is the display method for the gallery page that was found on the cheatsheet. I want this effect - when each image is clicked, it will enlarge.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/gallerycode2.png" alt="This is the code template for this effect. I chose to use this template and made some modifications.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/css1.png" alt="This is the CSS I have added to the weekly page HTML. Firstly, the margin removes the border and changes the background colour. Secondly, in addition to the elements in the template, I’ve added constraints to keep the images within the designated area and prevent them from extending beyond the screen. The margin and padding ensure the grid is positioned towards the centre on all four sides. With a top and bottom margin of 40px and automatic horizontal centring, the gallery is centred horizontally on the page. At the same time, set the inner margins on both sides to 20px, so that the gallery content does not tightly adhere to the screen edges, especially when the screen is narrow, leaving some breathing space. In the gallery-item, the overflow property hides the content that exceeds the border. In the img section, setting width: 100% fills the item completely, ensuring that the width of each image is the same. At the same time, to maintain the aspect ratio, the height is set to be automatically adjusted. Using display: block ensures that the image fits exactly within this box. The display property of the lightbox section being set to none is to hide it temporarily and then show it again after inserting JavaScript. The position is set to fixed, meaning it remains in the same position and will not be moved. The background is semi-transparent. The z-index value of 999 is used to ensure that the pop-up window appears at the top of the layers.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/css2.png" alt=" The light-container is related to this pop-up section. The flex display and flex-direction: row are used to align my images and text side by side. The align-items ensures that the cards in this section are centered vertically. The colour here is black, which is different from the black with low saturation of the background. For the image section, I kept the original aspect ratio of the images and displayed them within a fixed area. For the caption section, the colour was chosen to be white, which makes it more visible on a black background. The margin refers to the distance between the text and the images. max-height is used to limit the text from exceeding the black frame. Choosing overflow-y: auto means that when the text exceeds the limit, it will scroll vertically. After conducting a search, it was found that 16px can also be written as 1rem. I chose a line spacing that is 1.4 times the size of the text.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/jvs.png" alt=" This picture shows the bottom of the JavaScript part. First, it confirms that the div section is selected. Then, it concerns about onclick, which means when you click on an empty area, it will return to the original gallery page.  Next is the display of images. Inline styles are used to limit the maximum width and height of the images, allowing for the control of image size while adding them. This ensures that the images are neither too large nor distorted in proportion. In the script part, the first step is to have the code select all the images. The get element by id method is used to select all the lightboxes. Then, the enlarged image is displayed as the clicked image. Finally, style. display=flex is used to make the hidden lightbox appear on the screen only after a click.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/imagetext.png" alt="The div class is used to arrange all my images according to the specifications in the CSS. Each image is placed in a separate card. The text after alt is the description of the image. When the image is enlarged, JavaScript reads this text and displays it beside the image.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/div.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/style.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/documentsetup.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/links.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/a.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r1.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r2.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r3.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r4.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r5.png" alt=" Screenshot of web page reading history">
+  </div>
+   <div class="gallery-item">
+    <img src="images4/r6.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/script.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/homepagedrawing.JPG" alt="This picture is of the homepage that I drew. Each window will lead to a page for a week.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/window.JPG" alt="This is the view of the window when it is open. I have saved a separate image so that I can directly replace it into the code.">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/fullpage.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/header.png" alt=" Screenshot of web page reading history">
+  </div>
+  <div class="gallery-item">
+    <img src="images4/fpcode.png" alt=" I directly created a CSS using the copied code, and at the same time changed the background size to contain. Then an additional background color was added (I could not fully unify this color)">
+  </div>
+</div>
+
+<Lightbox HTML >
+<div id="lightbox" onclick="this.style.display='none'">
+  <div class="lightbox-container" >
+    <img id="lightbox-img" src="" style="max-width: 50%; max-height: 60% ;">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  items.forEach(img => {
+    img.onclick = (e) => {
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+    };
+  });
+</script>
+
+</body>
+</html>

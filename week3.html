@@ -1,0 +1,128 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Week 3</title>
+<style>
+  body {
+    margin: 0;
+    background: #ffd373;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    max-height: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+  }
+  
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 60%;
+    max-height: 70%;
+    background: #000;
+   
+  }
+  .lightbox-container img {
+    max-width: 50%;
+    max-height: 70%;
+    object-fit: contain;
+  
+  }
+  .lightbox-caption {
+    color: white;
+    margin-left: 20px;
+    max-width: 35%;
+    max-height: 50%;
+    overflow-y: auto;
+    font-size: 16px;
+    line-height: 1.4;
+    padding-right: 8px;
+  }
+
+ 
+
+</style>
+</head>
+<body>
+
+<a href="index.html" style="position: absolute; top: 5px; left: 5px;">Back</a>
+<h1 style="text-align: center; margin-top: 30px;">Week 3</h1>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="images3/sketch1.jpg" alt="This is the rough sketch of my workbook website concept. I hope the appearance of my homepage will be like a pencil-drawn house with many windows. When each window is opened, it will lead to a different section of the week. At the same time, I also want there to be an effect where the mouse hovers over a window to reveal it opening. After entering the weekly page, I have come up with two ways to present the work for this week. One is a photo wall, and the other is in the form of a gallery. When you click on it, the effect is that the pictures will be enlarged in the middle position, while there are text descriptions beside them. Regarding this door in the middle of the house, I think some interesting designs can be made. That is, when you open the door, there will be a staircase, truly creating a feeling of entering a house. The pattern on the staircase might be randomly selected from the content of a certain week. Every time you click the door, you might be randomly taken to a certain week.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/sketch2.jpg" alt="Here are the ideas for the presentation of the research section. I want to have the feel of a traditional news print newspaper for some of the research presentations. It should have a retro visual appeal. And I have some preliminary plans for the style and visual effects of this website.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/stitch1.png" alt="This picture shows the attempt of using Stitch AI during the class. After inputting some initial ideas of my assignment, some initial visual effects were generated. But, most of them were not the effects I wanted.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/stitch2.png" alt="The effect of this picture is very similar to the feeling of the home page of the workbook I want. I want these simple windows.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/stitch3.png" alt="I think the effect of this picture is very suitable for being displayed on each week's page to show what was done each week. I found that the instructions input by Stitch are difficult to adjust some details, such as the background colour or the position of the title. I only need a simple change, but Stitch AI might make a significant alteration, thus making the overall effect different.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/stitch4.png" alt="The game program on this is completely unplayable; it only has a visual effect.">
+  </div>
+  <div class="gallery-item">
+    <img src="images3/stitch5.JPG" alt="In this picture, when the mouse hovers over the window, the effect of the window opening will occur. This is exactly what I want to apply in my webpage, but the opening effect doesn't match well with the windows in the background image.">
+  </div>
+</div>
+
+<Lightbox HTML >
+<div id="lightbox" onclick="this.style.display='none'">
+  <div class="lightbox-container" onclick="event">
+    <img id="lightbox-img" src="" style="max-width: 50%; max-height: 60% ;">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  items.forEach(img => {
+    img.onclick = (e) => {
+      lightboxImg.src = img.src;
+      
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+    };
+  });
+</script>
+
+</body>
+</html>

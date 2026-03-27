@@ -1,0 +1,150 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Week 2</title>
+<style>
+  body {
+    margin: 0;
+    background: #ffd373;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    max-height: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 60%;
+    max-height: 70%;
+    background: #000;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .lightbox-container img {
+    max-width: 50%;
+    max-height: 70%;
+    object-fit: contain;
+    border: 2px solid white;
+    border-radius: 4px;
+  }
+  .lightbox-caption {
+    color: white;
+    margin-left: 20px;
+    max-width: 35%;
+    max-height: 80%;
+    overflow-y: auto;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding-right: 10px;
+  }
+
+ 
+
+</style>
+</head>
+
+<body>
+    <a href="index.html" style="position: absolute; top: 5px; left: 5px;">Back</a> 
+    <h1 style="text-align: center; margin-top: 30px;">Week 2 </h1>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="images2/8s1.jpg" alt="This is the crazy8 I drew at home. I felt that I was constrained by the common web page layout and had been using squares all the time, but I still managed to express my first reaction in my mind.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/8s2.jpg" alt="This is the crazy8 I drew in class. I tried adding more different elements and gave up on technical possibilities, which broadened my thinking. Among them, my favourite was the second row, the second one on the right. You can only enter the page you want to go to after completing the mini-game. If you lose, you will be randomly assigned to another page. Without considering the code, I really want to try this idea.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 1.JPG" alt="This picture is the paper prototyping done in class. This one shows the approximate position of the website's home page title that I envisioned, and below the title is the picture.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 2.JPG" alt="The purple ball represents the mouse. This picture shows that the title can be clicked.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 3.JPG" alt="After clicking on the title, bubbles will float upwards from the bottom. Each bubble can be clicked.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 4.JPG" alt="click the bottom">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 5.JPG" alt="After that, the bubbles that are clicked will float to the position of the title, while the other bubbles will move to the left. Then, the image and text will move upwards from the bottom.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 6.JPG" alt="Click the square in the upper left corner, it will take you back to the case and you will return to the previous page.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 7.JPG" alt="The movement pattern is a combination of images and text scrolling down the screen, with the bubbles on the left floating back again, creating this kind of movement trajectory.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/week2 8.JPG" alt="Back to the bottom page">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/code2.png" alt="This code is an attempt to apply styles to each image to change their sizes individually. However, this method becomes very cumbersome when trying to display a large number of images neatly. If adjustments are needed, each instruction would require changing.">
+  </div>
+  <div class="gallery-item">
+    <img src="images2/web.png" alt="This is an experimental website that will direct users to various websites on the internet that have no specific purpose. The homepage contains only one button. When users click this button, they will be randomly redirected to an interactive website. Most of these websites feature simple animations, games, or peculiar visual experiences. Element: only 1 bottom to click, takes me to another website. This bring: surprise, playfulness">
+  </div>
+</div>
+
+<Lightbox HTML >
+<div id="lightbox" onclick="this.style.display='none'">
+  <div class="lightbox-container" onclick="event">
+    <img id="lightbox-img" src="" style="max-width: 50%; max-height: 60% ;">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+  const items = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  items.forEach(img => {
+    img.onclick = (e) => {
+      lightboxImg.src = img.src;
+      
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+    };
+  });
+</script>
+
+
+
+   
+</body>
+</html>
