@@ -22,14 +22,19 @@
   .gallery-item {
     overflow: hidden;
     cursor: pointer;
-    transition: transform 0.2s;
   }
   
+
   .gallery-item img {
     width: 100%;
-    height: auto;
+    height: 250px;
+
+    object-fit: cover;
+
     display: block;
-  }
+
+    border-radius:10px;
+}
 
   #lightbox {
     display: none;
@@ -43,42 +48,59 @@
     justify-content: center;
     align-items: center;
   }
+
   .lightbox-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    max-width: 60%;
-    max-height: 70%;
+    align-items: flex-start;
+    width:80%;
+    max-width: 1200px;
+    padding:20px;
+    border-radius:15px;
+    gap:20px;
     background: #000;
-    border-radius: 8px;
-    padding: 20px;
+   
   }
   .lightbox-container img {
-    max-width: 50%;
-    max-height: 70%;
-    object-fit: contain;
-    border: 2px solid white;
-    border-radius: 4px;
-  }
-  .lightbox-caption {
-    color: white;
-    margin-left: 20px;
-    max-width: 35%;
-    max-height: 80%;
-    overflow-y: auto;
-    font-size: 1rem;
-    line-height: 1.4;
-    padding-right: 10px;
-  }
+    width:50%;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:10px;
+}
 
- 
+
+  .lightbox-caption {
+
+    color:white;
+    width:50%;
+    max-height:80vh;
+    overflow-y:auto;
+    font-size:1rem;
+    line-height:1.7;
+    padding-right:10px;
+}
+
+ .back-button{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    background-color:rgb(186,91,7);
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+}
 
 </style>
 </head>
 
 <body>
-    <a href="index.html" style="position: absolute; top: 5px; left: 5px;">Back</a> 
-    <h1 style="text-align: center; margin-top: 30px;">Week 2 </h1>
+    <a href="index.html" class="back-button">Back</a>
+    <h1 style="text-align: center; margin-top: 30px;color: #ffffff;">Week 2 </h1>
 
 <div class="gallery">
   <div class="gallery-item">
