@@ -1,0 +1,233 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Week 5&6&7</title>
+<style>
+  body {
+    margin: 0;
+    background: #ffd373;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    max-width: 1200px;
+    max-height: 1300px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .gallery-item {
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+
+  .gallery-item img {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    display: block;
+
+    border-radius:10px;
+}
+
+  #lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .lightbox-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width:80%;
+    max-width: 1200px;
+    padding:20px;
+    border-radius:15px;
+    gap:20px;
+    background: #000;
+   
+  }
+  .lightbox-container img {
+    width:50%;
+    max-height:85vh;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+
+  .lightbox-caption {
+
+    color:white;
+    width:50%;
+    max-height:80vh;
+    overflow-y:auto;
+    font-size:1rem;
+    line-height:1.7;
+    padding-right:10px;
+}
+
+ .back-button{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    background-color:rgb(186,91,7);
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+}
+
+.gallery-item video{
+
+    width:100%;
+    height:250px;
+
+    object-fit:cover;
+
+    border-radius:10px;
+}
+
+</style>
+
+</head>
+</head>
+
+<body>
+<a href="index.html" class="back-button">Back</a>
+<h1 style="text-align: center; margin-top: 30px;color: #ffffff;">Week5-9 </h1>
+
+<div class="gallery">
+  <div class="gallery-item">
+    <img src="images567/5.png" alt="This is a Processing exercise completed in class. Using the draw() function of p5.js, it enables the background colour to change based on the mouse position, the circle to follow the cursor movement, and the text to rotate with the mouse. Later, I added an animation effect of particles appearing when the mouse moves on the homepage.">
+  </div>
+   <div class="gallery-item">
+    <img src="images567/code5.png" alt="The core logic of p5.js is that the setup() function runs only once to initialise the canvas, while the draw() function is executed continuously in each frame. Therefore, by placing the changing content within the draw() function, animation effects can be achieved. mouseX and mouseY are built-in variables in p5.js that record the mouse coordinates in real time. By passing them into the colour or position parameters, the image will move along with the mouse.">
+   </div>
+  <div class="gallery-item">
+    <img src="images567/52.JPG" alt="Different colour and size combinations attempt.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/61.JPG" alt="In week 6, we came into contact with the components of Arduino. For the first time, I got a close-up look at these electronic components. Here, I will make some guesses about the functions and names of each component.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/62.JPG" alt="This slide is about learning the names and functions of each component. Each component has its own function and needs to be connected through circuits and code to operate. This is completely different from the previous purely software-based programming experience. In class, we also attempted to assemble a simple circuit: connecting the button and LED to the Arduino. When the button is pressed, the light turns on, and when it is released, it goes off.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/7.JPG" alt="In week 7, I continued to build a new small device using Arduino. Here is the wiring diagram provided. I followed the instructions step by step to connect the sensors and the buzzer to the breadboard, and then uploaded the code to the Arduino.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/72.JPG" alt="This is a semi-finished product.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/73.JPG" alt="This is the final assembled state.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/74.JPG" alt="The final effect is as follows: When there is nothing in front, it remains silent. As soon as your hand is extended and brought close to the sensor, it starts to make a sound. The closer the distance, the more pronounced the reaction. The video on the right shows the effect.">
+  </div>
+
+  <div class="gallery-item">
+  <video controls>
+    <source src="images567/75.mp4" type="video/mp4">
+  </video>
+  </div>
+
+  <div class="gallery-item">
+    <img src="images567/81.JPG" alt="This is the installation we made this week: several wires are connected to the Arduino, each wire corresponding to a different pitch. When your fingers touch them, they will produce the sounds of do, re, mi, like a mini electronic piano.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/83.JPG" alt="The principle is capacitive touch sensing. The wires can detect the touch of fingers and trigger the buzzer to emit the corresponding sound.
+The video on the right shows the effect.">
+  </div>
+
+  <div class="gallery-item">
+  <video controls>
+    <source src="images567/82.mp4" type="video/mp4">
+  </video>
+  </div>
+
+  <div class="gallery-item">
+    <img src="images567/final.JPG" alt="This is the combination and pairing of different inputs and outputs of the interactive works presented in the class, which provided me with inspiration for my final project.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/91.JPG" alt="This week, we conducted the pitch and plan sharing for the final project, and also attempted to create the final appearance of the product using paper. I managed to make a simple model of a room. In my initial plan, I intended to create 2-3 rooms, combined with the web game design on the screen and for presentation. However, later I decided to abandon this model idea and switch to another solution. In the last plan in the attached PDF, it is the one I finally decided to try.">
+  </div>
+  <div class="gallery-item">
+    <img src="images567/92.JPG" alt="This is a paper model.">
+  </div>
+  
+  <div class="gallery-item">
+  <a href="images567/finalplan.pdf" target="_blank" style="
+    width: 100%;
+    height: 250px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(186,91,7);
+    font-size: 1.2rem;
+    font-weight: bold;
+    gap: 10px;
+  ">
+    <span style="font-size: 2rem;">Final plan pdf</span>
+  </a>
+
+</div>
+
+
+
+<div id="lightbox" onclick="this.style.display='none'">
+  <div class="lightbox-container" onclick="event">
+    <img id="lightbox-img" src="" style="max-width: 50%; max-height: 60% ;">
+    <div id="lightbox-caption" class="lightbox-caption"></div>
+  </div>
+
+
+
+</div>
+
+</div>
+
+
+
+<script>
+  const items = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+
+  items.forEach(img => {
+    img.onclick = (e) => {
+      lightboxImg.src = img.src;
+      
+      lightboxCaption.textContent = img.alt;
+      lightbox.style.display = 'flex';
+    };
+  });
+</script>
+
+
+
+   
+</body>
+</html>

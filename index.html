@@ -3,37 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ok world</title>
+    <title>Feihong's Workbook</title>
+
     <style>
-        body {
-            margin: 0;
-            background-image: url("images4/homepagedrawing.JPG");
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
+
+        body{
+            margin:0;
             background-color: rgb(252, 219, 148);
-            min-height: 100vh;
+            overflow-x:hidden;
         }
-  
+
+        a{
+            text-decoration:none;
+        }
+
+        /* 标题 */
+
+        header{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        header h1{
+            display:inline-block;
+            background-color: rgb(186, 91, 7);
+            padding:15px 25px;
+            border-radius:10px;
+            color:white;
+        }
+
+        /* 房子整体容器 */
+
+        .house-container{
+            position:relative;
+
+            width:100vw;
+            max-width:1400px;
+
+            margin:30px auto;
+        }
+
+        /* 背景房子图 */
+
+        .house{
+            width:100%;
+            display:block;
+        }
+
+        /* 所有窗户通用 */
+
+        .window{
+            position:absolute;
+        }
+
+        .window img{
+            width:100%;
+            opacity:0;
+            transition:0.3s;
+            display:block;
+        }
+
+        .window:hover img{
+            opacity:1;
+        }
+
+        /* 中间文字 */
+
+        .label{
+            position:absolute;
+
+            top:50%;
+            left:50%;
+
+            transform:translate(-50%,-50%);
+
+            color:white;
+            font-size:2vw;
+
+            opacity:0;
+            transition:0.3s;
+
+            text-shadow:2px 2px 8px black;
+
+            z-index:2;
+        }
+
+        .window:hover .label{
+            opacity:1;
+        }
+
        
+        /* Week1 */
+        .window1{
+            top:7%;
+            left:2%;
+            width: 33%;
+        }
+
+        /* ---------------- */
+        /* Week2 */
+        /* ---------------- */
+
+        .window2{
+            top:7%;
+            left:33%;
+            width:33%;
+        }
+
+        /* ---------------- */
+        /* Week3 */
+        /* ---------------- */
+
+        .window3{
+            top:7%;
+            left:64%;
+            width:33%;
+        }
+
+        /* ---------------- */
+        /* Process */
+        /* ---------------- */
+
+        .window4{
+            top:47%;
+            left:64%;
+            width:33%;
+        }
+
+        /* ---------------- */
+        /* Week5 */
+        /* ---------------- */
+
+        .window5{
+            top:46%;
+            left:2%;
+            width:33%;
+        }
+
+
+    #circle-text-canvas {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+    width: 15%;
+    cursor: pointer;
+}
+
+    
+
     </style>
 </head>
 
-<body style="text-align: center;">
-<header style="display: inline-block; background-color: rgb(186, 91, 7); padding: 10px 20px; border-radius: 8px; text-align: center; margin: 30px auto 0 auto;">
-    <h1 style="text-align: center; margin-top: 30px;">Feihong's workbook </h1>
-</header>
-<br>
-<div style="position: relative; min-height: 100vh;">
-    <a href="week1.html" style="position: absolute; top: 100px; left: 260px; font-size: 1.5rem;">
-    <h2>week1</h2></a>
-    <a href="week2.html" style="position: absolute; top: 100px; left: 650px; font-size: 1.5rem;">
-    <h2>Week 2</h2></a>
-    <a href="week3.html" style="position: absolute; top: 100px; left: 1030px; font-size: 1.5rem;">
-    <h2>Week 3</h2></a>
-    <a href="process.html" style="position: absolute; top: 400px; left: 570px; font-size: 1.5rem;">
-    <h2>out of studio study</h2></a>
-</div>
+<body>
+
+    <header>
+        <h1>Feihong's Workbook</h1>
+    </header>
+
+    <div class="house-container">
+
+        <!-- 背景房子 -->
+        <img src="images4/homepagedrawing.JPG" class="house">
+
+        <!-- Week1 -->
+        <div class="window window1">
+
+            <a href="week1.html">
+
+                <img src="images567/home2.png">
+
+                <div class="label">Week1</div>
+
+            </a>
+
+        </div>
+
+        <!-- Week2 -->
+        <div class="window window2">
+
+            <a href="week2.html">
+
+                <img src="images567/home2.png">
+
+                <div class="label">Week2</div>
+
+            </a>
+
+        </div>
+
+        <!-- Week3 -->
+        <div class="window window3">
+
+            <a href="week3.html">
+
+                <img src="images567/home2.png">
+
+                <div class="label">Week3</div>
+
+            </a>
+
+        </div>
+
+        <!-- Process -->
+        <div class="window window4">
+
+            <a href="process.html">
+
+                <img src="images567/home2.png">
+
+                <div class="label">Process</div>
+
+            </a>
+
+        </div>
+
+        <!-- Week5 -->
+        <div class="window window5">
+
+            <a href="week5.html">
+
+                <img src="images567/home2.png">
+
+                <div class="label">Week5-9</div>
+
+            </a>
+
+        </div>
+
+        <canvas id="circle-text-canvas"></canvas>
+
+    </div>
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="dustmouse.js"></script>
+    
+    <script>
+        // 转圈文字
+        const canvas = document.getElementById('circle-text-canvas');
+        const ctx = canvas.getContext('2d');
+        const text = 'PROCESS PART 2';
+        const radius = 50;
+        let angle = 0;
+
+        canvas.width = 150;
+        canvas.height = 150;
+
+        canvas.addEventListener('click', () => {
+            window.location.href = 'process2.html';
+        });
+
+        function drawCircleText() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.font = 'bold 30px sans-serif';
+            ctx.fillStyle = 'rgb(21, 253, 241)';
+
+            for (let i = 0; i < text.length; i++) {
+                const charAngle = angle + (i / text.length) * Math.PI * 2;
+                const x = canvas.width / 2 + radius * Math.cos(charAngle);
+                const y = canvas.height / 2 + radius * Math.sin(charAngle);
+
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(charAngle + Math.PI / 2);
+                ctx.fillText(text[i], 0, 0);
+                ctx.restore();
+            }
+
+            angle += 0.01;
+            requestAnimationFrame(drawCircleText);
+        }
+
+        drawCircleText();
+    </script>
 
 </body>
+
 </html>

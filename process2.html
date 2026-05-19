@@ -1,0 +1,432 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process Part 2</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(252, 219, 148);
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; }
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: rgb(186, 91, 7);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    h1 {
+      text-align: center;
+      padding-top: 30px;
+      color: white;
+      margin: 0 0 10px;
+    }
+
+    .collage-area {
+      position: relative;
+      width: 90%;
+      max-width: 1200px;
+      height: 1800px;
+      margin: 20px auto 40px;
+      background: rgb(243, 205, 120);
+      border-radius: 16px;
+    }
+   
+    .card {
+      position: absolute;
+      background: white;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: grab;
+      user-select: none;
+      box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+      max-width: 180px;
+    }
+    .card:active { cursor: grabbing; }
+
+    /* image */
+    .card img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      pointer-events: none;
+    }
+
+    /* colours */
+    .card.yellow { background: #fff9c4; }
+    .card.pink   { background: #fce4ec; }
+    .card.green  { background: #e8f5e9; }
+    .card.orange { background: #fff3e0; }
+
+    /* card text */
+    .card p {
+      font-size: 12px;
+      margin: 8px 0 0;
+      color: #555;
+      line-height: 1.5;
+      pointer-events: none;
+    }
+
+    .card .card-title {
+      font-size: 13px;
+      font-weight: bold;
+      color: rgb(186, 91, 7);
+      margin: 0 0 4px;
+      pointer-events: none;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      background: rgb(186, 91, 7);
+      color: white;
+      margin-top: 8px;
+      pointer-events: none;
+    }
+
+    /* PDF*/
+    .pdf-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      text-decoration: none;
+      pointer-events: auto;
+    }
+
+    .pdf-card span {
+      font-size: 2rem;
+    }
+    .pdf-card p {
+      color: rgb(186, 91, 7) !important;
+      font-weight: bold;
+      margin-top: 6px !important;
+    }
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 999;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      width: 80%;
+      max-width: 1200px;
+      padding: 20px;
+      border-radius: 15px;
+      gap: 20px;
+      background: #000;
+    }
+
+    .lightbox-container img {
+      width: 50%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .lightbox-caption {
+      color: white;
+      width: 50%;
+      max-height: 80vh;
+      overflow-y: auto;
+      font-size: 1rem;
+      line-height: 1.7;
+      padding-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="index.html" class="back-button">Back</a>
+  <h1>Process Part 2</h1>
+
+  <div class="collage-area" id="area">
+
+    <!-- 图片卡片1：点击弹出 lightbox -->
+    <div class="card" style="top:40px; left:30px; transform:rotate(-2deg); max-width:160px;"
+         data-img="process2/myface.PNG" data-caption="This is the face I drew using p5.js. The various parts of the face were formed through the combination of basic graphics in the code.">
+      <img src="process2/myface.PNG" alt="images1">
+      <p>p5.js face drawing</p>
+    </div>
+
+    <!-- facecode-->
+    <div class="card" style="top:40px; left:200px; transform:rotate(2deg); max-width:160px;"
+         data-img="process2/facecode.PNG" data-caption="The logic of p5.js is the layer order from back to front. The later drawn shapes will cover the ones drawn earlier. Therefore, when drawing a face, one should draw the hair first, then the face, and finally the facial features.
+createCanvas(400, 400) creates a canvas of 400x400 pixels on the web page. It is placed in the setup() function because the canvas needs to be created only once, rather than being looped in the draw() function every frame. ellipse() draws an ellipse, circle() draws a perfect circle, and arc() draws an arc. fill() fills the colour, noFill() indicates that there is no color filling inside the shape, and noStroke() removes the border line of the shape. stroke() and strokeWeight() are used to set the border colour and thickness.
+By adjusting the coordinates and sizes of each shape, they stack together to outline the face. For example, for the part of the bangs, I used two dark ellipses placed on the left and right sides, and then a skin-colored ellipse covering the middle to simulate the effect of the hair parting.">
+      <img src="process2/facecode.PNG" alt="images1">
+      <p>p5.js face drawing code</p>
+    </div>
+
+    <!-- 画 -->
+    <div class="card" style="top:1330px; left:400px; transform:rotate(7deg); max-width:160px;"
+         data-img="process2/paint.PNG" data-caption="This is also a p5.js work on openProcessing. The code was used to draw a group of pottery jars and withered branches. The background features tiny particles slowly spreading out. The overall style resembles hand-drawn prints. This is different from the styles of other code-generated paintings. It almost feels like a hand-drawn animation.">
+      <img src="process2/paint.PNG" alt="images1">
+      <p>Zen Pots - newyellow</p>
+    </div>
+
+
+    <!-- 鼠标code -->
+    <div class="card" style="top:30px; left:425px; transform:rotate(-5deg); max-width:160px;"
+         data-img="process2/destcode.PNG" data-caption="This is a mouse particle animation implemented with p5.js. The core idea is: as the mouse moves, colourful small balls are constantly generated. These balls will move for a certain distance before disappearing. The entire code is wrapped in (function() { ... })() to encapsulate everything within a separate scope, avoiding conflicts with other JavaScript files. particles is used to store all the moving particles.
+         Whenever the mouse moves and triggers mouseMoved(), the addDust() function is called to randomly generate 3 to 6 new small balls. Each particle is an instance of the DustParticle class, and in the constructor, various details are determined: the x and y positions correspond to the mouse coordinates, vx and vy are random horizontal and vertical speeds, size is a random size, r, g, b are colors, life is the life value starting from 255, and decay is the speed 
+         at which it decreases per frame. The update() function updates the particle state every frame: the position moves according to the velocity, the size is multiplied by 0.95 to make the particle gradually shrink, and the life is reduced by decay to make it gradually become transparent. The isDead() function returns true when the particle becomes too small. The draw() function is executed in a loop every frame, using the update() and show() functions of each particle. 
+         If isDead() returns true, it uses splice() to remove it from the array. The canvas is set to position: fixed in CSS to be fixed at the top of the page, and pointer-events: none is used to allow mouse clicks to pass through the canvas without affecting other content on the page.">
+      <img src="process2/destcode.PNG" alt="images2">
+      <p>mouse movement code</p>
+    </div>
+   <!-- 解释鼠标用了 -->
+   <div class="card" style="top:60px; left:590px; transform:rotate(0.5deg); max-width:220px;">
+      <p style="font-style:normal; color:#000000; font-size:13px; pointer-events:none;">
+        In the workbook, I changed the balls to gray ones and also reduced the number of small balls.
+      </p>
+    </div>
+    
+    <!-- 转圈文字 -->
+    <div class="card" style="top:120px; left:700px; transform:rotate(6deg); max-width:160px;"
+         data-img="process2/circlecode.PNG" data-caption="This is a circular text animation implemented with p5.js. The canvas is the drawing area provided by HTML, and by using getContext('2d'), we make the text in 2D form. Using Math.cos() and Math.sin(), we evenly distribute each letter on a circular trajectory, and then use ctx.rotate() to make each letter face towards the centre of the circle. The "angle" increments by 0.01 for each frame. By repeating this action with requestAnimationFrame, the text will continue to rotate. When the canvas is clicked, the click event is listened for using addEventListener and the corresponding page is navigated to.">
+      <img src="process2/circlecode.PNG" alt="images1">
+      <p>Code of circle text</p>
+    </div>
+
+    <!-- back按键reflect -->
+     <div class="card" style="top:300px; left:30px; transform:rotate(-5deg); max-width:220px;">
+      <p style="font-style:normal; color:#000000; font-size:13px; pointer-events:none;">
+       I added a border to the "Back" button.
+      </p>
+    </div>
+
+    <!-- 描述修改弹窗 -->
+    <div class="card pink" style="top:1270px; left:868px; transform:rotate(-1.5deg); max-width:160px;">
+      <p class="card-title">Reflection</p>
+      <p>I made some adjustments to the CSS to solve the problem of the images in the previous image gallery protruding out of the grid. By adding "overflow: hidden" to the .gallery-item, its function is to directly cut off the content that exceeds the grid range, so that the images will not stretch beyond the layout. Combined with the "object-fit: cover" in the .gallery-item img, the images will fill the grid while maintaining their original proportions, and the excess part will be cropped instead of expanding the container. When these two attributes are combined, the images will no longer protrude.</p>
+      <span class="tag">Reflect</span>
+    </div>
+
+     <!-- 描述修改弹窗2 -->
+    <div class="card pink" style="top:300px; left:420px; transform:rotate(4deg); max-width:160px;">
+      <p class="card-title">Reflection</p>
+      <p>In the .lightbox-container img, the property object-fit: contain is used. This will make the image resize to exactly fit the size of the container without any cropping or distortion. At the same time, the max-height: 85vh is set to limit the image to occupy no more than 85% of the screen height, preventing overly large images from exceeding the screen boundaries.</p>
+      <span class="tag">Reflect</span>
+    </div>
+
+
+    <div class="card" style="top:780px; left:680px; transform:rotate(1deg); max-width:160px;"
+         data-img="process2/study1.PNG" data-caption="This is the face I drew using p5.js. The various parts of the face were formed through the combination of basic graphics in the code.">
+      <img src="process2/study1.PNG" alt="images">
+      <p>teamLab Planets</p>
+    </div>
+    <div class="card" style="top:690px; left:200px; transform:rotate(-4deg); max-width:160px;"
+         data-img="process2/study2.PNG" data-caption="Zach Lieberman is an artist who creates art through code. He consistently conducts a visual exercise (daily sketch) using code every day, exploring how to express the organic feelings of water, light, and nature through programming. I was extremely shocked that he could create such complex works with code, as if he were actually painting or using graphic design techniques. This completely demonstrates that code-based drawing can achieve excellent results just like traditional painting and design.">
+      <img src="process2/study2.PNG" alt="images">
+      <p>Zach Lieberman</p>
+    </div>
+
+    <!-- gif 卡片 -->
+    <div class="card" style="top:220px; left:960px; transform:rotate(1deg); max-width:180px;">
+  <img src="process2/move.gif" alt="gif">
+  <p>Test of a mouse movement animation</p>
+</div>
+ <div class="card" style="top:1300px; left:13px; transform:rotate(-5deg); max-width:180px;">
+  <img src="process2/moveface.gif" alt="gif">
+  <p>Face Riot-Kamel Ghabte</p>
+</div>
+ <!--描述gif-->
+    <div class="card" style="top:1300px; left:103px; transform:rotate(9deg); max-width:220px;">
+      <p style="font-style:normal; color:#000000; font-size:13px; pointer-events:none;">
+        I saw an interesting p5.js project on OpenProcessing. It uses the camera to detect the position of human faces in real time and generates animated effects that follow the movement of the faces. https://openprocessing.org/@missionkg/2882844
+      </p>
+    </div>
+
+<!-- 开窗效果code -->
+    <div class="card" style="top:420px; left:794px; transform:rotate(3deg); max-width:160px;"
+         data-img="process2/windowscode.PNG" data-caption="I achieved the window-opening effect that failed last time by adding a transparent background image. Using the property 'position: absolute', multiple transparent click areas (.window) were superimposed on the original background image. Each area corresponded to a window position on the house image, 
+         and was positioned by 'top', 'left', and 'width'. As a result, the position of the windows would automatically adjust according to the size of the page and always align with the background image. In the body, a div insertion has also been added. The CSS properties opacity and transition are used to hide the image (with opacity: 0). When the mouse 
+         hovers over the window area (:hover), the image and text will be displayed (with opacity: 1).">
+      <img src="process2/windowscode.PNG" alt="images6">
+      <p>Opening windows code</p>
+    </div>
+
+
+    <!--描述插入视频和pdf-->
+    <div class="card" style="top:990px; left:730px; transform:rotate(5deg); max-width:220px;">
+      <p style="font-style:normal; color:#000000; font-size:13px; pointer-events:none;">
+        In the image gallery, I also added content in video and PDF formats. The videos were embedded using the 'video' tag, and the controls attribute was used to allow users to play and pause them directly on the page. In CSS, the video is set to have the same width and height as the images, with the object-fit property set to cover, so that it maintains the same appearance as the other image grids. For the PDF, an <a> tag is used to create a clickable white card. When clicked, the file opens in a new tab. The display: flex property is used to centre the content, visually aligning it with the other grids, but the click behaviour is different.
+      </p>
+    </div>
+
+    <!-- 引用文字卡片 -->
+    <div class="card" style="top:12px; left:830px; transform:rotate(0.5deg); max-width:220px;">
+      <p style="font-style:blod; color:#ff0000; font-size:20px; pointer-events:none;">
+        "When this page becomes narrower, the cards may disappear."
+      </p>
+    </div>
+    <div class="card" style="top:980px; left:420px; transform:rotate(2deg); max-width:220px;">
+      <p style="font-style:blod; color:#ff0000; font-size:30px; pointer-events:none;">
+        "This pdf can't be moved without get into it."
+      </p>
+    </div>
+
+    <!-- PDF 卡片 -->
+    <div class="card" style="top:960px; left:280px; transform:rotate(-1.5deg); max-width:150px;">
+      <a href="process2/Research Journal.pdf" target="_blank" class="pdf-card">
+        <span>🔍📓</span>
+        <p>Research Journal pdf</p>
+      </a>
+    </div>
+
+ <div class="card" style="top: 450px; left:165px; transform:rotate(2deg); max-width:160px;"
+         data-img="process2/card1.jpg" data-caption="The process2 page uses a layout with cards. Each card is positioned on the page using position: absolute, with the starting position set by top and left. The transform: rotate() property is used to give the cards a slight tilt, make the overall effect look like a randomly arranged collage. Dragging is achieved through JavaScript's mouse events: mousedown records the position when the mouse is pressed,mousemove updates the position of the card, and mouseup ends the dragging. To distinguish between "dragging and clicking, a variable called moved is used in the code. Only when no movement occurs will the click trigger the lightbox popup.">
+      <img src="process2/card1.jpg" alt="images">
+    </div>
+
+  <!-- jsr -->
+    <div class="card" style="top:470px; left:520px; transform:rotate(1deg); max-width:160px;"
+         data-img="process2/jsr1.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr1.PNG" alt="images">
+    </div>
+    <div class="card" style="top:1400px; left:600px; transform:rotate(1deg); max-width:160px;"
+         data-img="process2/jsr2.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr2.PNG" alt="images">
+    </div>
+    <div class="card" style="top:1200px; left:250px; transform:rotate(-8deg); max-width:160px;"
+         data-img="process2/jsr3.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr3.PNG" alt="images">
+    </div>
+    <div class="card" style="top:770px; left:300px; transform:rotate(2deg); max-width:160px;"
+         data-img="process2/jsr4.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr4.PNG" alt="images">
+    </div>
+    <div class="card" style="top:1060px; left:30px; transform:rotate(-8deg); max-width:160px;"
+         data-img="process2/jsr5.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr5.PNG" alt="images">
+    </div>
+    <div class="card" style="top:970px; left:50px; transform:rotate(-3deg); max-width:160px;"
+         data-img="process2/jsr6.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr6.PNG" alt="images">
+    </div>
+    <div class="card" style="top:600px; left:90px; transform:rotate(2deg); max-width:160px;"
+         data-img="process2/jsr7.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr7.PNG" alt="images">
+    </div>
+    <div class="card" style="top:830px; left:980px; transform:rotate(-9deg); max-width:160px;"
+         data-img="process2/jsr8.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr8.PNG" alt="images">
+    </div>
+     <div class="card" style="top:630px; left:440px; transform:rotate(-9deg); max-width:160px;"
+         data-img="process2/jsr9.PNG" data-caption="Screenshot of web page reading history(p5js)">
+      <img src="process2/jsr9.PNG" alt="images">
+    </div>
+
+    <div class="card" style="top: 870px; left:10px; transform:rotate(10deg); max-width:160px;"
+         data-img="process2/video.PNG" data-caption="Screenshot of web page reading history">
+      <img src="process2/video.PNG" alt="images">
+    </div>
+
+    <div class="card" style="top: 1270px; left:930px; transform:rotate(-3deg); max-width:160px;"
+         data-img="process2/css1.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css1.PNG" alt="images">
+    </div>
+    <div class="card" style="top: 1670px; left:800px; transform:rotate(-9deg); max-width:160px;"
+         data-img="process2/css2.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css2.PNG" alt="images">
+    </div>
+    <div class="card" style="top: 1590px; left:458px; transform:rotate(-10deg); max-width:160px;"
+         data-img="process2/css3.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css3.PNG" alt="images">
+    </div>
+    <div class="card" style="top: 1470px; left:300px; transform:rotate(7deg); max-width:160px;"
+         data-img="process2/css4.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css4.PNG" alt="images">
+    </div>
+    <div class="card" style="top: 1520px; left:28px; transform:rotate(-3deg); max-width:160px;"
+         data-img="process2/css5.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css5.PNG" alt="images">
+    </div>
+    <div class="card" style="top: 1200px; left:528px; transform:rotate(-3deg); max-width:160px;"
+         data-img="process2/css6.PNG" data-caption="Screenshot of web page reading history(css)">
+      <img src="process2/css6.PNG" alt="images">
+    </div>
+
+
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.style.display='none'">
+    <div class="lightbox-container" onclick="event.stopPropagation()">
+      <img id="lightbox-img" src="">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <script>
+    // 拖拽功能
+    const area = document.getElementById('area');
+    const cards = area.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      let dragging = false, ox, oy, moved = false;
+
+      card.addEventListener('mousedown', e => {
+        if (e.target.tagName === 'A') return;
+        dragging = true;
+        moved = false;
+        const rect = card.getBoundingClientRect();
+        const aRect = area.getBoundingClientRect();
+        ox = e.clientX - rect.left;
+        oy = e.clientY - rect.top;
+        card.style.zIndex = 10;
+        e.preventDefault();
+      });
+
+      document.addEventListener('mousemove', e => {
+        if (!dragging) return;
+        moved = true;
+        const aRect = area.getBoundingClientRect();
+        let x = e.clientX - aRect.left - ox;
+        let y = e.clientY - aRect.top - oy;
+        x = Math.max(0, Math.min(aRect.width - card.offsetWidth, x));
+        y = Math.max(0, Math.min(aRect.height - card.offsetHeight, y));
+        card.style.left = x + 'px';
+        card.style.top = y + 'px';
+      });
+
+      document.addEventListener('mouseup', () => {
+        if (!dragging) return;
+        dragging = false;
+        card.style.zIndex = '';
+
+        // 点击弹出 lightbox（没有拖动才触发）
+        if (!moved && card.dataset.img) {
+          document.getElementById('lightbox-img').src = card.dataset.img;
+          document.getElementById('lightbox-caption').textContent = card.dataset.caption || '';
+          document.getElementById('lightbox').style.display = 'flex';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
